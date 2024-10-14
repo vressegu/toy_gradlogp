@@ -132,8 +132,10 @@ def plot_energy_field(ax, trainer):
 
 def plot_samples(ax, trainer, steps, eps):
     samples = []
-    for i in range(1000):
-        x = torch.rand(1000, 2) * 8 - 4
+    I = 2
+    for i in range(I): # LOG: changed from 1000
+        print(" generating samples for i = {i} / {I} ".format(i=i+1, I=I))
+        x = torch.rand(10000, 2)    # TODO:  before : 8 N(0,I) - 4
         x = x.to(device=trainer.device)
         x = glogp.utils.langevin_dynamics(
             trainer.model.score,
@@ -144,8 +146,8 @@ def plot_samples(ax, trainer, steps, eps):
         samples.append(x)
     samples = np.concatenate(samples, axis=0)
     # draw energy
-    ax.grid(False)
-    ax.axis('off')
+    #ax.grid(False)
+    #ax.axis('off')
     glogp.vis.plot_data(ax, samples)
     ax.set_title('Sampled data', fontsize=16)
 
