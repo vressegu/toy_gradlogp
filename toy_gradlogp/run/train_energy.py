@@ -74,7 +74,7 @@ def main():
     eval_dataset = tf.data.Dataset.from_tensor_slices(eval_data)
     # create networks
     model = glogp.energy.Energy(
-        net = glogp.energy.ToyMLP()
+        net = glogp.energy.ToyMLP(input_dim=eval_data.shape[1])
     )
     trainer = glogp.energy.Trainer(
         model,
