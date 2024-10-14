@@ -70,5 +70,27 @@ def sample_2d(dataset, n_samples):
         # Add noise
         return x + torch.normal(mean=torch.zeros_like(x), std=0.08*torch.ones_like(x))
 
+    elif dataset == 'PODmodes':
+
+        dim = 2
+        pathData = '../MultiplicativeDiffusion/'
+        npdata = np.load(pathData + 'tempPODModes/LES_Re300/temporalModes_16modes/U.npy')
+        npdata = np.load(pathData + 'tempPODModes/LES_Re3900/temporalModes_16modes/U.npy')
+        # npdata = np.load(pathData + 'L63_data.npy')
+        # n_dim_L96 = 4
+        # npdata = np.load(pathData + 'L96_n' + str(n_dim_L96) + '_data.npy')
+
+        npdata = npdata[:,0:dim]
+        npdata = npdata / 10
+        x = torch.from_numpy(npdata)
+
+        #x = x[torch.randint(0, n_samples, size=(n_samples,))]
+
+        # x = x[0:n_samples,:]
+        # x = x[torch.randperm(n_samples), : ]
+        
+
+        return x
+    
     else:
         raise RuntimeError('Invalid `dataset` to sample from.')

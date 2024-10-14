@@ -46,7 +46,7 @@ python -m toy_gradlogp.run.train_energy --help
 
 ```
 usage: train_energy.py [-h] [--logdir LOGDIR]
-                       [--data {8gaussians,2spirals,checkerboard,rings}]
+                       [--data {8gaussians,2spirals,checkerboard,rings,PODmodes}]
                        [--loss {ssm-vr,ssm,deen,dsm}]
                        [--noise {radermacher,sphere,gaussian}] [--lr LR]
                        [--size SIZE] [--eval_size EVAL_SIZE]
@@ -58,7 +58,7 @@ usage: train_energy.py [-h] [--logdir LOGDIR]
 optional arguments:
   -h, --help            show this help message and exit
   --logdir LOGDIR
-  --data {8gaussians,2spirals,checkerboard,rings}
+  --data {8gaussians,2spirals,checkerboard,rings,PODmodes}
                         dataset
   --loss {ssm-vr,ssm,deen,dsm}
                         loss type

@@ -23,7 +23,7 @@ def parse_args():
     parser.add_argument('--logdir', type=str, default='./log/')
     parser.add_argument(
         '--data',
-        choices=['8gaussians', '2spirals', 'checkerboard', 'rings'],
+        choices=['8gaussians', '2spirals', 'checkerboard', 'rings','PODmodes'],
         type=str, 
         default='2spirals',
         help='dataset'
